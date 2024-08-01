@@ -1,0 +1,16 @@
+{
+  "name": "clash-royale-engine",
+  "version": "1.0.0",
+  "description": "Simulates Clash Royale's battle system with tools for custom card creation and playing using previous season data.",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel index.html build --out-dir public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}

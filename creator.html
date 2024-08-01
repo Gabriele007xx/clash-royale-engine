@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Card Creation</title>
+    <style>
+      body {
+        background-color: #c000c0;
+        margin-top: -1rem;
+      }
+      .title {
+        text-align: center;
+        color: white;
+        background-color: purple;
+      }
+      header,
+      .full-width {
+        margin: 0 0rem;
+        /* add back negative margin value */
+        padding: 0.25rem 0rem;
+        width: 100%;
+      }
+      .purple {
+        background: purple;
+      }
+      .wrap {
+        width: 80%;
+        max-width: 24em;
+        margin: 0 auto;
+        padding: 0.25em 0.625em;
+      }
+      #header {
+        background-color: purple; /* Grey background */
+        margin: 0 -1rem;
+        padding: 20px 10px; /* Some padding */
+        color: white;
+        text-align: center; /* Centered text */
+        font-size: 50px; /* Big font size */
+        font-weight: bold;
+        position: fixed; /* Fixed position - sit on top of the page */
+        top: 0;
+        width: 100%; /* Full width */
+        transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+      }
+    </style>
+    <script>
+      function createCard() {
+        var d = [];
+        var i = 0;
+        var len = document.getElementById("cardInfo").elements.length;
+        //Loop through all the elements
+        while(i < len-1){
+          d.push(document.getElementById("cardInfo").elements[i].value);
+          i++;
+        }
+        //Special features
+        var special = "";
+        var extra = "";
+        if(d[17] > 0){
+          special += "[\"slow\", "+(30*d[17])+"], ";
+        }
+        if(d[18] > 0){
+          special += "[\"stun\", "+(30*d[18])+"], ";
+        }
+        if(d[19] > 0){
+          special += "[\"snare\", "+(30*d[19])+"], ";
+        }
+        if(d[20] > 0){
+          special += "[\"lifetime\", "+(30*d[20])+"], ";
+        }
+        if(d[21] === "yes"){
+          special += "[\"spell\"], ";
+          extra = ", \"spell\"";
+          d[4] = 0;
+        }
+        if(d[22] === "yes"){
+          special += "[\"resistance\"], ";
+        }
+        if(d[23] === "yes"){
+          special += "[\"weak-stun\"], ";
+        }
+        if(d[24] === "yes"){
+          special += "[\"kamikaze\"], ";
+        }
+        //Basics implementation
+        var ret = "[\""+d[0]+"\", \""+d[1]+"\", "+d[2]+", [";
+        i=0;
+        while(i < d[25]){
+          var xt = 0.5;
+          var yt = 0.5;
+          if(d[25] == 2){
+            xt = Math.floor((0.5+(parseFloat(d[6])+d[26])*(i-0.5)*2)*100)/100;
+            yt = 0.5;
+          }
+          if(d[25] == 3){
+            xt = Math.floor(0.5+(parseFloat(d[6])+d[26])*Math.cos((i*2+3/2)*3.14159265/3)*100)/100;
+            yt = Math.floor(0.5+(parseFloat(d[6])+d[26])*Math.sin((i*2+3/2)*3.14159265/3)*100)/100;
+          }
+          if(d[25] == 4){
+            xt = Math.floor(0.5+(parseFloat(d[6])+d[26])*(Math.floor(i/2)-0.5)*2*100)/100;
+            yt = Math.floor(0.5+(parseFloat(d[6])+d[26])*(i%2-0.5)*2*100)/100;
+          }
+          var deploy = 30;
+          if(d[27] == "y"){
+            deploy += (d[25]-i-1)*3;
+          }
+          var troop = "[\""+d[3]+"\", "+d[4]+", "+d[4]+", "+d[5]+", "+yt+", "+xt+", "+(d[6]*2)+", "+d[7]+", "+d[8]+", "+d[9]+", "+d[10]+", 0, "+(d[11]*30)+", "+(d[12]*30)+", -1, false, 0, "+d[13]+", \""+d[14]+"\", \""+d[15]+"\", 1, "+deploy+", "+(d[16]*30)+", [], ["+special+"],], ";
+          //var troop = xt + " " + yt;
+          ret += troop;
+          i++;
+        }
+        ret += "]"+extra+"]"
+        document.getElementById("output").innerHTML = ret;
+      }
+      function testCard(){
+        var url = "engine.html?blueDeck=https%3A%2F%2Flink.clashroyale.com%2Fdeck%2Fen%3Fdeck%3D26000010%3B26000014%3B26000021%3B26000030%3B26000038%3B27000000%3B28000000%3B29000000&redDeck=https%3A%2F%2Flink.clashroyale.com%2Fdeck%2Fen%3Fdeck%3D26000003%3B28000011%3B28000008%3B28000000%3B26000016%3B26000063%3B26000039%3B29000000&version=current&order=true&maxElixir=10&elixirR=1";
+        var i = 0;
+        var len = document.getElementById("cardInfo").elements.length;
+        //Loop through all the elements
+        while(i < len-1){
+          url += "&v"+i+"="+(document.getElementById("cardInfo").elements[i].value);
+          i++;
+        }
+        window.location = url;
+      }
+    </script>
+  </head>
+  <body>
+      <div id="header">Card Creation Tool</div>
+      <script>
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        window.onscroll = function() {scrollFunction()};
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("header").style.fontSize = "20px";
+          } else {
+            document.getElementById("header").style.fontSize = "50px";
+          }
+        }
+      </script>
+    <div style="margin-top:90px;padding:15px 5px 25px;">
+    <p>This form will guide you through the process of creating a simple new card. For testing, visit <a href="index.html" style="color:white">index.html</a>.</p>
+    <p><i>All values need to be filled in!</i></p>
+    <form id="cardInfo">
+      <!-- Select -->
+      <div>
+        <h2 class="full-width" style="background-color: #80f080">
+          Card Settings
+        </h2>
+        <p></p>
+        <label for="nameC"><i>Card Name: </i></label>
+        <input
+          type="text"
+          id="nameC"
+          name="nameC"
+        />
+        <p>The name of the card as a whole. Will be shown in card info and when playing cards. Try to keep it fairly short.</p>
+        <p></p>
+        <p><i>Card Description: </i></p>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Description goes here..."
+          cols="50"
+          rows="5"
+        ></textarea>
+        <p>The description of the card. Use this to add lore to the card or to suggest possible uses. Use "\n" for new lines as an ENTER character if you want to have multiple paragraphs. Don't make it too long.</p>
+        <p></p>
+        <label for="elixirC"><i>Elixir Cost(0-20): </i></label>
+        <input
+          type="number"
+          id="elixirC"
+          name="elixirC"
+          min="0"
+          max="20"
+          step="1"
+          value="0"
+        />
+        <p>The card's elixir cost. Although 10 is the max in-game, if you want to mess around with max elixir you can possibly go farther. Lower cost troops generally are weaker than higher cost troops, and higher cost troops generally provide more value per elixir.</p>
+        <p></p>
+        <h2 class="full-width" style="background-color: #80f080">
+            Basic Troop Settings
+        </h2>
+        <p></p>
+        <label for="name"><i>Troop Name: </i></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+        />
+        <p>The name of the single troop. Should be pretty similar to the card name above, but doesn't need to be. The first two letters will distinguish this troop in my engine. I usually keep this all lowercase(although this isn't required).</p>
+        <p></p>
+        <label for="hp"><i>Health(positive): </i></label>
+        <input
+          type="number"
+          id="hp"
+          name="hp"
+          min="0"
+          step="1"
+          value="100"
+        />
+        <p>The health of your troop. Higher health troops can tank more shots. Keep in mind spell interactions - Zap/Snowball deals 159 damage, Log-243, Arrows-303, Fireball-572, Poison-600, Lightning-877, Rocket-1232.</p>
+        <p></p>
+        <label for="atk"><i>Attack: </i></label>
+        <input
+          type="number"
+          id="atk"
+          name="atk"
+          step="1"
+          value="100"
+        />
+        <p>The attack strength of your troop. This will be dealt to the target troop every fire rate. A troop's damage can help determine its role in a deck as well as how much health it should have.</p>
+        <p></p>
+        <label for="size"><i>Collision Radius: </i></label>
+        <input
+          type="number"
+          id="size"
+          name="size"
+          value="0.5"
+        />
+        <p>This is how "big" the troop is. Most standard troops have a radius of 0.5(the default here). Bigger troops like Giants and Golems can go up to a radius of 1.</p>
+        <p></p>
+        <label for="mass"><i>Mass(0-Building): </i></label>
+        <input
+          type="number"
+          id="mass"
+          name="mass"
+          min="0"
+          step="1"
+          value="3"
+        />
+        <p>This is how "heavy" the troop is. Skeletons and Bats have a mass of 1, and most troops have a mass between 3 and 5. Some tanks and heavyweights can have up to 20 mass. Buildings have infinite mass, which is shown as 0 here.</p>
+        <p></p>
+        <label for="speedC"><i>Speed(0-Nonmoving, 45-Slow, 60-Medium, 90-Fast, 120-Very Fast): </i></label>
+        <input
+          type="number"
+          id="speedC"
+          name="speedC"
+          min="0"
+          step="1"
+          value="60"
+        />
+        <p>This is how fast the troop is. Comparisons are shown above - sticking to them is a good idea. Buildings <i>should</i> have 0 speed but don't <i>need</i> to if you don't want to.</p>
+        <p></p>
+        <label for="range"><i>Range(tiles): </i></label>
+        <input
+          type="number"
+          id="range"
+          name="range"
+          value="1.2"
+        />
+        <p>This is how far the troop can attack from. Melee troops don't show a tile range - short range is 0.8 or less, medium is 1.2, long is 1.6. All other troops show their ranges. Princess Towers have a range of 7.5, and the King has a 7-tile range.</p>
+        <p></p>
+        <label for="rangeS"><i>Sight Range: </i></label>
+        <input
+          type="number"
+          id="rangeS"
+          name="rangeS"
+          value="5.5"
+        />
+        <p>This is how far a troop can "see" - only targets within this range will be considered for attack. Most troops have a 5.5 sight range. Higher sight range troops are easier to kite and distract.</p>
+        <p></p>
+        <label for="frate"><i>Fire Rate(seconds): </i></label>
+        <input
+          type="number"
+          id="frate"
+          name="frate"
+          min="0"
+          value="1.1"
+        />
+        <p>This is how fast a troop attacks. Longer fire rates generally makes troops weaker to swarms.</p>
+        <p></p>
+        <label for="ltime"><i>Load Time: </i></label>
+        <input
+          type="number"
+          id="ltime"
+          name="ltime"
+          min="0"
+          value="0.5"
+        />
+        <p>This is how long it takes for a troop to attack first. Balloon has a nearly instant load time, and Zappies have a fairly long one. A faster load time makes a troop more likely to win interactions.</p>
+        <p></p>
+        <label for="aoe"><i>AOE Radius(0 for point attack): </i></label>
+        <input
+          type="number"
+          id="aoe"
+          name="aoe"
+          min="0"
+          value="0"
+        />
+        <p>This is how big a unit's splash attack will be. 0 just is a standard single-target attack. Most splash damage troops have an AOE from 0.8 to 1.6. A spell's radius goes here if the troop's actually a spell.</p>
+        <p></p>
+        <label for="type"><i>Troop Type: </i></label>
+        <select name="type" id="type">
+          <option value="ground">Ground</option>
+          <option value="air">Air</option>
+          <option value="hovering">Hovering</option>
+          <option value="building">Building</option>
+          <option value="spell">Spell</option>
+          <option value="bomb">Bomb (not reccomended)</option>
+          <option value="uground">Underground (not reccomended)</option>
+        </select>
+        <p>This determines the type of troop. Hovering troops can go over the river but are hit by all ground attacks. (Glitches from Supercell's original dev build are patched.) Spell troops require more setup to work. Bombs and Underground troops aren't really meant to be used in a normal troop context.</p>
+        <p></p>
+        <label for="ttype"><i>Target Type: </i></label>
+        <select name="ttype" id="ttype">
+          <option value="ground">Ground Only</option>
+          <option value="all">Air/Ground</option>
+          <option value="air">Air Only</option>
+          <option value="buildings">Buildings Only</option>
+          <option value="troops">Troops Only</option>
+        </select>
+        <p>This determines what the troop can attack. Air Only is a new option that isn't used by any troop currently - they can attack air and buildings. Troops Only is used by the Ram's rider - buildings, including Crown Towers, cannot be targeted.</p>
+        <p></p>
+        <label for="dtime"><i>Deploy Time(sec): </i></label>
+        <input
+          type="number"
+          id="dtime"
+          name="dtime"
+          min="0"
+          value="1"
+        />
+        <p>The troop's deploy time is the period after the one-second initial delay and before the troop can move and attack. Generally 1 second - exceptions, like the X-Bow, are rare.</p>
+        <p></p>
+        <h2 class="full-width" style="background-color: #80f080">
+            Advanced Troop Settings
+        </h2>
+        <p>These control special effects that a troop may have, like slowing and snaring. Not all are present here.</p>
+        <p></p>
+        <label for="sltime"><i>Slow Time(sec): </i></label>
+        <input
+          type="number"
+          id="sltime"
+          name="sltime"
+          min="0"
+          value="0"
+        />
+        <p>This is the amount of time that a unit will slow an attacked enemy. Ice Wizard, Ice Golem, Fisherman, and Snowball all apply this effect.</p>
+        <p></p>
+        <label for="sttime"><i>Stun Time(sec): </i></label>
+        <input
+          type="number"
+          id="sttime"
+          name="sttime"
+          min="0"
+          value="0"
+        />
+        <p>The amount of time that a unit will be stunned when this unit attacks it. Stunned units cannot move or attack. Think EWiz and EDrag.</p>
+        <label for="sntime"><i>Snare Time(sec): </i></label>
+        <input
+          type="number"
+          id="sntime"
+          name="sntime"
+          min="0"
+          value="0"
+        />
+        <p>The amount of time that a unit will be snared when this unit attacks it. Snared units can only move at 15% speed. Ram Rider uses snaring.</p>
+        <p></p>
+        <label for="lftime"><i>Lifetime(sec): </i></label>
+        <input
+          type="number"
+          id="lftime"
+          name="lftime"
+          min="0"
+          value="0"
+        />
+        <p>If this is non-zero, the unit will slowly decay over time - after SEC seconds, it will die. Taking damage makes the unit die faster. Used mostly on buildings.</p>
+        <p></p>
+        <label for="spell"><i>Spell: </i></label>
+        <select name="spell" id="spell">
+          <option value="n">No</option>
+          <option value="y">Yes</option>
+        </select>
+        <p>If this is selected, the unit will be a spell instead. Spells can be placed anywhere. You must set health to 0!</p>
+        <p></p>
+        <label for="kbresist"><i>Knockback Resistance: </i></label>
+        <select name="kbresist" id="kbresist">
+          <option value="n">No</option>
+          <option value="y">Yes</option>
+        </select>
+        <p>Resist all knockback other than sudo KB. (Sudo knockback examples are Log and recoil.)</p>
+        <p></p>
+        <label for="stunweak"><i>Stun Weakness: </i></label>
+        <select name="stunweak" id="stunweak">
+          <option value="n">No</option>
+          <option value="y">Yes</option>
+        </select>
+        <p>Units that are weak to stuns will have their attacks reset upon a stun. Applies to Sparky.</p>
+        <label for="kamikaze"><i>Kamikaze: </i></label>
+        <select name="kamikaze" id="kamikaze">
+          <option value="n">No</option>
+          <option value="y">Yes</option>
+        </select>
+        <p>Kamikaze troops die after their first attack. Think Ice Spirit, Fire Spirits, Wall Breakers...</p>
+        <p></p>
+        <h2 class="full-width" style="background-color: #80f080">
+          Troop Placement Settings
+        </h2>
+        <p></p>
+        <label for="count"><i>Troop Count(1-4): </i></label>
+        <input
+          type="number"
+          id="count"
+          name="count"
+          min="1"
+          step="1"
+          value="1"
+          max="4"
+        />
+        <p>This will make your card spawn multiple copies of your troop.</p>
+        <p></p>
+        <label for="spacing"><i>Troop Spacing(tiles): </i></label>
+        <input
+          type="number"
+          id="spacing"
+          name="spacing"
+          min="0"
+          value="0.1"
+        />
+        <p>If your card has multiple troops, this will control how far apart they are when they deploy. Their hitboxes are factored in. A farther spread allows for your card to surround others more easily.</p>
+        <p></p>
+        <label for="stagger"><i>Deploy Time Stagger: </i></label>
+        <select name="stagger" id="stagger">
+          <option value="n">No</option>
+          <option value="y">Yes</option>
+        </select>
+        <p>Staggers deploy time if active. First drop is the frontmost troop, going counterclockwise. 0.1 seconds between drops.</p>
+        <p></p>
+      </div>
+      <!-- Submit buttons, both do the same thing -->
+      <p></p>
+      <button type="reset">Reset Values</button>
+    </form>
+    <p></p>
+    <button onClick="createCard()">Create Card</button>
+    <p></p>
+    <p id="output">...</p>
+    <p><i>The above line is your card data!</i></p>
+    <p></p>
+    <button onClick="testCard()">Test Card</button>
+    <p>Card will be tested in the current Clash Royale environment. You'll get a somewhat default deck.</p>
+    <p></p>
+    <h2>Changelog</h2>
+    <p>June 9, 2020 - Added in basic tools for card creation.</p>
+    <p>June 10, 2020 - Added in Slow, Stun, Lifetime, and Spell. You can now test in-game! Later added Snare, KB Resist, and Stun Weakness. Even later added Kamikaze and a WIP count system.</p>
+    <p>June 12, 2020 - Took Count out of WIP status, and added more tools for controlling placements of multiple troops.</p>
+    <p></p>
+  </div>
+    <footer
+      class="full-width"
+      style="background-color: purple; font-size: 12px; color: white"
+    >
+      Created by Scholarly Gaming, 2020<img src="logo.png" width="64" height="64" style="margin: 10px auto 10px; display: block"></img>This content is not
+      affiliated with, endorsed, sponsored, or specifically approved by
+      Supercell and Supercell is not responsible for it. For more information
+      see Supercell’s Fan Content Policy:
+      <a
+        style="color:#c0c0c0"
+        href="http://www.supercell.com/fan-content-policy"
+        >www.supercell.com/fan-content-policy</a
+      >
+    </footer>
+  </body>
+</html>

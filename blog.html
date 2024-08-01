@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Clash Royale Engine</title>
+    <style>
+      body {
+        background-color: #c000c0;
+        margin-top: -1rem;
+      }
+      .title {
+        text-align: center;
+        color: white;
+        background-color: purple;
+      }
+      header,
+      .full-width {
+        margin: 0 0rem;
+        /* add back negative margin value */
+        padding: 0.25rem 0rem;
+        width: 100%;
+      }
+      #header {
+        background-color: purple; /* Grey background */
+        margin: 0 -1rem;
+        padding: 20px 10px; /* Some padding */
+        color: white;
+        text-align: center; /* Centered text */
+        font-size: 50px; /* Big font size */
+        font-weight: bold;
+        position: fixed; /* Fixed position - sit on top of the page */
+        top: 0;
+        width: 100%; /* Full width */
+        transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+      }
+      .purple {
+        background: purple;
+      }
+      .wrap {
+        width: 80%;
+        max-width: 24em;
+        margin: 0 auto;
+        padding: 0.25em 0.625em;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="header">Blog/Update News</div>
+      <script>
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        window.onscroll = function() {scrollFunction()};
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("header").style.fontSize = "20px";
+          } else {
+            document.getElementById("header").style.fontSize = "50px";
+          }
+        }
+      </script>
+    <div style="margin-top:90px;padding:15px 5px 25px;">
+    <p>This is my blog for my Clash Royale Engine. Here, I'll post update notes and my plans to continue and extend this project.</p>
+    <p><a href="index.html" style="color:white">Back to home page...</a></p></p>
+    <h2 class="full-width" style="background-color: #f0f080">8/12/20 - Getting Rects</h2>
+    <p>Just added a patch to the engine! Now the King and Princess towers have rectangular collision with spells. That is, NT projectiles and T projectiles wil work as though they have a rectangular collision, but melee units and mass calculations will use the original circular collision.</p>
+    <p>Also patched a fringe issue with Log - now it should work more reliably. And Log got its additional .5 tile removed now that rectangular collision is working and it doesn't need it.</p>
+    <p>All in all, solid updates that should improve system accuracy and reliability.</p>
+    <p>In other news, check out my full blog here: <a href="https://blog.scholarlygaming.vercel.app/index.html" style="color: white">https://blog.scholarlygaming.vercel.app/index.html</a></p>
+    <p>UPDATE: Added 6 more Classic decks, including 3 from Season 14 and 3 from Season 12. Added 6 Retro decks that will work with Retro mode.</p>
+    <h2 class="full-width" style="background-color: #f0f080">8/4/20 - Site Update!</h2>
+    <p>Unfortunately, I haven't gotten a lot of time to work on this lately. But very shortly I'm going to have a lot of free time. I know this could use some updates, so I will provide them.</p>
+    <p>First step; tonight I made some site-wide updates. Added this section in so that I could post updates here. And I improved the headers and got rid of that bottom scrollbar that's been bothering me for a while.</p>
+    <p>Balances should be in tonight as well. Personal opinion: I think these were pretty fair in most cases. Although I think that spells in general weren't the problem - Rocket was. I'd have just reduced the Crown Tower damage for it. And that Miner nerf was probably a bit overkill... All in all I'm expecting a Beatdown-focused meta.</p>
+    <p>Anyway, with that said, I plan on working on the card creation tool a bit more shortly - expect some updates next week. And there's some changes that I need to make to the towers. Square collision might take me a while, but it is definitely needed. And I should probably make some other fixes.</p>
+    <p>In terms of other projects, I kind of want to make a more personal blog as well. (Yes, this is a blog, but I want to keep this for things relating to this project and Clash Royale in general.) That'll take some time, as I want to add some better HTML to that. Because in terms of HTML... well... I could use some work on that.</p>
+    <p>Well, I'm off to nerf the Miner. I'll add something here when I'm able to start work on the next round of updates.</p>
+    <p>UPDATE - Balances completed! Sorry for the downtime for the past hour (11PM EST) - arrays are hard. Log is 0.5 tiles longer than it should be - otherwise it cannot hit the tower without rectangular collision. Again, will fix that soon and will then update Log to fix it.</p>
+  </div>
+    <footer
+      class="full-width"
+      style="background-color: purple; font-size: 12px; color: white"
+    >
+      Created by Scholarly Gaming, 2020<img src="logo.png" width="64" height="64" style="margin: 10px auto 10px; display: block"></img>This content is not
+      affiliated with, endorsed, sponsored, or specifically approved by
+      Supercell and Supercell is not responsible for it. For more information
+      see Supercell’s Fan Content Policy:
+      <a
+        style="color:#c0c0c0"
+        href="http://www.supercell.com/fan-content-policy"
+        >www.supercell.com/fan-content-policy</a
+      >
+    </footer>
+  </body>
+</html>

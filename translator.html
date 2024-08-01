@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Clash Royale Engine</title>
+    <style>
+      body {
+        background-color: #c000c0;
+        margin-top: -1rem;
+      }
+      .title {
+        text-align: center;
+        color: white;
+        background-color: purple;
+      }
+      header,
+      .full-width {
+        margin: 0 0rem;
+        /* add back negative margin value */
+        padding: 0.25rem 0rem;
+        width: 100%;
+      }
+      #header {
+        background-color: purple; /* Grey background */
+        margin: 0 -1rem;
+        padding: 20px 10px; /* Some padding */
+        color: white;
+        text-align: center; /* Centered text */
+        font-size: 50px; /* Big font size */
+        font-weight: bold;
+        position: fixed; /* Fixed position - sit on top of the page */
+        top: 0;
+        width: 100%; /* Full width */
+        transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+      }
+      .purple {
+        background: purple;
+      }
+      .wrap {
+        width: 80%;
+        max-width: 24em;
+        margin: 0 auto;
+        padding: 0.25em 0.625em;
+      }
+    </style>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("replayT");
+  var text = x.elements[0].value;
+  text = text.split("},");
+  var array = [];
+
+for(var i=0; i < text.length; i++){
+    array[i] = text[i]+"}";
+}
+
+var final = "";
+
+var i = 0;
+while(i < array.length){
+  var object = array[i].split("\"");
+  //Time
+  var time = object[6].slice(2, 6);
+  if(time[3] === ","){
+    time = "0"+time;
+  }
+  time = time.slice(0, 4);
+  final += time;
+  //ID
+  if(object[10][3] === ","){
+    final += "0"+object[10].slice(2, 3);
+  }
+  else{
+    final += object[10].slice(2, 4);
+  }
+  //Card (16)
+  final += object[16].slice(3, 4);
+  final += object[16].slice(8, 10);
+  //Tile X(18)
+  var tx = object[18].slice(2, 7);
+  //if(tx[4] === ","){
+  //  tx = "0"+tx;
+  //}
+  //tx = tx.slice(0, 2);
+  //final += tx;
+  tx = Math.floor(parseInt(tx)/1000);
+  if(tx < 10){
+    tx = "0"+tx;
+  }
+  final += tx;
+  //Tile Y(20)
+  var ty = object[20].slice(2, 7);
+  //if(ty[4] === "," || ty){
+  //  ty = "0"+ty;
+  //}
+  //ty = ty.slice(0, 2);
+  //final += ty;
+  ty = Math.floor(parseInt(ty)/1000);
+  if(ty < 10){
+    ty = "0"+ty;
+  }
+  final += ty;
+  final += "X";
+  i++;
+}
+
+//$('#output').text(JSON.stringify(newObject));
+  document.getElementById("result").innerHTML = final;
+      }
+      function submitF(){
+        myFunction();
+        resultF.submit();
+      }
+      function exampleSetup(){
+        document.getElementById("result").innerHTML = "0229108041406X0271116081404X0388107040921X0441116330914X0554108111418X0677106001418X0865116241414X0891106321408X0916116391414X0924106181417X1022118081218X1161108041406X1227118011406X1459107040921X1648116330900X1723108031306X1896116211012X1951106000919X2142116391211X2199106420931X2263116241314X2321106181417X2363107040920X2552108041600X2556116081201X2573106321408X2715108111417X2736116331013X2876106421024X2894116210814X2948107040923X2967116221514X3024106001420X3064116241414X3114106181417X3161108111320X3177118081419X3228106421320X3308116331011X3331106321408X3421107040918X3426116081408X3512116390914X3581108031407X3632108111417X3691116211414X3743106181423X3781118081421X3821106321206X3854116221414X";
+        document.getElementById("replay").disabled = true;
+        document.getElementById("translate").disabled = true;
+        document.getElementById("tandr").disabled = true;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="header">Replay Viewer</div>
+      <script>
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        window.onscroll = function() {scrollFunction()};
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("header").style.fontSize = "20px";
+          } else {
+            document.getElementById("header").style.fontSize = "50px";
+          }
+        }
+      </script>
+    <div style="margin-top:90px;padding:15px 5px 25px;">
+    <p>This is the replay viewer for my engine. You'll need the raw JSON files for this - it takes the cmd array from them, with the brackets removed, and turns them into compact data that my engine can read. Does not work for non-Tournament Level matches.</p>
+    <p>Of course, if you can't get raw JSON files, this might not be all that useful for you; in which case, you can view an example battle by clicking the button below.</p>
+    <p><i>Although I have access to JSON files, I'm not allowed to share them; the provided replay does not come with the JSON behind it. Click on the Use Edited Data button to play it.</i></p>
+    <button type="button" onclick="exampleSetup()">See Example Replay</button>
+    <p></p>
+    <form action="engine.html" id="replayT">
+      <!-- Text area -->
+      <div>
+        <h2 class="full-width" style="background-color: #f0f080" for="blueDeck">
+          Replay Translator
+        </h2>
+        <p><i>Copy/paste the JSON here:</i></p>
+        <textarea
+          name="replay"
+          id="replay"
+          placeholder="Paste in your replay card placement files here..."
+          cols="50"
+          rows="5"
+        ></textarea>
+      </div>
+    </form>
+    <p></p>
+    <form action="engine.html" id="resultF">
+      <div>
+        <textarea
+          name="result"
+          id="result"
+          placeholder="Result data will show up here..."
+          cols="50"
+          rows="5"
+        ></textarea>
+      </div>
+      <!-- Submit buttons, both do the same thing -->
+      <p></p>
+    </form>
+    <button id="translate" onclick="myFunction()">Get result</button>
+    <button id="tandr" onclick="submitF()">Use data</button>
+    <button onclick="resultF.submit()">Use edited data</button>
+    <p></p>
+  </div>
+    <footer
+      class="full-width"
+      style="background-color: purple; font-size: 12px; color: white"
+    >
+      Created by Scholarly Gaming, 2020<img src="logo.png" width="64" height="64" style="margin: 10px auto 10px; display: block"></img>This content is not
+      affiliated with, endorsed, sponsored, or specifically approved by
+      Supercell and Supercell is not responsible for it. For more information
+      see Supercell’s Fan Content Policy:
+      <a
+        style="color:#c0c0c0"
+        href="http://www.supercell.com/fan-content-policy"
+        >www.supercell.com/fan-content-policy</a
+      >
+    </footer>
+  </body>
+</html>
