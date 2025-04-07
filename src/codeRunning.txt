@@ -891,7 +891,7 @@ var lastCardB = -1;
 var lastCardR = -1;
 
 //["name", health, max, attack, x, y, size(diameter), mass, speed, range, srange, cool, maxCool, ret, target, lock, shield, aoe, type, targetType, penalty, load time, deploy time, [effects], [special]]
-if(getUrlVars()["kinglvl"]==1)
+if(getUrlVars()["bluekinglvl"]==1)
 {
         //Active troops on your team
         var bTroops = [
@@ -900,14 +900,8 @@ if(getUrlVars()["kinglvl"]==1)
         ["ptower", 1400, 1400, 50, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
     
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 2400, 2400, 50, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1400, 1400, 50, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1400, 1400, 50, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==2)
+else if(getUrlVars()["bluekinglvl"]==2)
 {
     //Active troops on your team
     var bTroops = [
@@ -915,15 +909,8 @@ else if(getUrlVars()["kinglvl"]==2)
         ["ptower", 1512, 1512, 54, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 1512, 1512, 54, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 2568, 2568, 54, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1512, 1512, 54, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1512, 1512, 54, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==3)
+else if(getUrlVars()["bluekinglvl"]==3)
 {
     //Active troops on your team
     var bTroops = [
@@ -931,15 +918,8 @@ else if(getUrlVars()["kinglvl"]==3)
         ["ptower", 1624, 1624, 58, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 1624, 1624, 58, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 2736, 2736, 58, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1624, 1624, 58, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1624, 1624, 58, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==4)
+else if(getUrlVars()["bluekinglvl"]==4)
 {
     //Active troops on your team
     var bTroops = [
@@ -947,15 +927,8 @@ else if(getUrlVars()["kinglvl"]==4)
         ["ptower", 1750, 1750, 62, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 1750, 1750, 62, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 2904, 2904, 62, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1750, 1750, 62, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1750, 1750, 62, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==5)
+else if(getUrlVars()["bluekinglvl"]==5)
 {
     //Active troops on your team
     var bTroops = [
@@ -963,15 +936,8 @@ else if(getUrlVars()["kinglvl"]==5)
         ["ptower", 1890, 1890, 67, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 1890, 1890, 67, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 3096, 3096, 67, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1890, 1890, 67, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 1890, 1890, 67, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==6)
+else if(getUrlVars()["bluekinglvl"]==6)
 {
     //Active troops on your team
     var bTroops = [
@@ -979,15 +945,8 @@ else if(getUrlVars()["kinglvl"]==6)
         ["ptower", 2030, 2030, 72, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 2030, 2030, 72, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 3312, 3312, 72, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2030, 2030, 72, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2030, 2030, 72, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==7)
+else if(getUrlVars()["bluekinglvl"]==7)
 {
     //Active troops on your team
     var bTroops = [
@@ -995,15 +954,8 @@ else if(getUrlVars()["kinglvl"]==7)
         ["ptower", 2184, 2184, 78, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 2184, 2184, 78, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 3528, 3528, 78, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2184, 2184, 78, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2184, 2184, 78, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==8)
+else if(getUrlVars()["bluekinglvl"]==8)
 {
     //Active troops on your team
     var bTroops = [
@@ -1011,15 +963,8 @@ else if(getUrlVars()["kinglvl"]==8)
         ["ptower", 2352, 2352, 84, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 2352, 2352, 84, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 3768, 3768, 84, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2352, 2352, 84, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 2352, 2352, 84, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
-else if(getUrlVars()["kinglvl"]==9)
+else if(getUrlVars()["bluekinglvl"]==9)
 {
     //Active troops on your team
     var bTroops = [
@@ -1027,15 +972,8 @@ else if(getUrlVars()["kinglvl"]==9)
     ["ptower", 2534, 2534, 90, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
     ["ptower", 2534, 2534, 90, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
     ];
-
-    //Active troops on enemy team
-    var rTroops = [
-    ["ctower", 4308, 4008, 90, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ["ptower", 2534, 2534, 90, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ["ptower", 2534, 2534, 90, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ];
 }
-else if(getUrlVars()["kinglvl"]==10)
+else if(getUrlVars()["bluekinglvl"]==10)
 {
     //Active troops on your team
     var bTroops = [
@@ -1043,15 +981,8 @@ else if(getUrlVars()["kinglvl"]==10)
     ["ptower", 2786, 2786, 99, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
     ["ptower", 2786, 2786, 99, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
     ];
-
-    //Active troops on enemy team
-    var rTroops = [
-    ["ctower", 4392, 4392, 99, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ["ptower", 2786, 2786, 99, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ["ptower", 2786, 2786, 99, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-    ]; 
 }
-else if(getUrlVars()["kinglvl"]==11)
+else if(getUrlVars()["bluekinglvl"]==11)
 {
         //Active troops on your team
         var bTroops = [
@@ -1059,15 +990,8 @@ else if(getUrlVars()["kinglvl"]==11)
         ["ptower", 3052, 3052, 109, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 3052, 3052, 109, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-    
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 4824, 4824, 109, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 3052, 3052, 109, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 3052, 3052, 109, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ]; 
 }
-else if(getUrlVars()["kinglvl"]==12)
+else if(getUrlVars()["bluekinglvl"]==12)
 {
             //Active troops on your team
             var bTroops = [
@@ -1075,15 +999,8 @@ else if(getUrlVars()["kinglvl"]==12)
             ["ptower", 3346, 3346, 119, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ["ptower", 3346, 3346, 119, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ];
-        
-            //Active troops on enemy team
-            var rTroops = [
-            ["ctower", 5304, 5304, 119, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 3346, 3346, 119, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 3346, 3346, 119, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ]; 
 }
-else if(getUrlVars()["kinglvl"]==13)
+else if(getUrlVars()["bluekinglvl"]==13)
 {
         //Active troops on your team
         var bTroops = [
@@ -1091,15 +1008,8 @@ else if(getUrlVars()["kinglvl"]==13)
             ["ptower", 3668, 3668, 131, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ["ptower", 3668, 3668, 131, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ];
-            
-            //Active troops on enemy team
-            var rTroops = [
-            ["ctower", 5832, 5832, 131, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 3668, 3668, 131, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 3668, 3668, 131, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ];
 }
-if(getUrlVars()["kinglvl"]==14)
+if(getUrlVars()["bluekinglvl"]==14)
 {
         //Active troops on your team
         var bTroops = [
@@ -1107,31 +1017,17 @@ if(getUrlVars()["kinglvl"]==14)
             ["ptower", 4032, 4032, 144, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ["ptower", 4032, 4032, 144, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
             ];
-            
-            //Active troops on enemy team
-            var rTroops = [
-            ["ctower", 6408, 6408, 144, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 4032, 4032, 144, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ["ptower", 4032, 4032, 144, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-            ];
 }   
-if(getUrlVars()["kinglvl"]==15)
+if(getUrlVars()["bluekinglvl"]==15)
 {
     //Active troops on your team
     var bTroops = [
         ["ctower", 7032, 7032, 158, 29, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 4424, 4424, 158, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 4424, 4424, 158, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
-        ];
-        
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 7032, 7032, 158, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 4424, 4424, 158, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 4424, 4424, 158, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
         ];        
 }              
-if(getUrlVars()["kinglvl"]==16)
+if(getUrlVars()["bluekinglvl"]==16)
 {
     //Active troops on your team
     var bTroops = [
@@ -1139,15 +1035,177 @@ if(getUrlVars()["kinglvl"]==16)
         ["ptower", 4866, 4866, 173, 25.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ["ptower", 4866, 4866, 173, 25.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 180, 0, "building", "all", 1, 0, 0, []],
         ];
-        
-        //Active troops on enemy team
-        var rTroops = [
-        ["ctower", 7735, 7735, 173, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 4866, 4866, 173, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ["ptower", 4866, 4866, 173, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
-        ];
 }
 
+if(getUrlVars()["redkinglvl"]==1)
+    {        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 2400, 2400, 50, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1400, 1400, 50, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1400, 1400, 50, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==2)
+    {
+
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 2568, 2568, 54, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1512, 1512, 54, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1512, 1512, 54, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==3)
+    {
+
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 2736, 2736, 58, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1624, 1624, 58, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1624, 1624, 58, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==4)
+    {
+
+        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 2904, 2904, 62, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1750, 1750, 62, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1750, 1750, 62, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==5)
+    {
+
+        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 3096, 3096, 67, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1890, 1890, 67, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 1890, 1890, 67, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==6)
+    {
+
+        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 3312, 3312, 72, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2030, 2030, 72, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2030, 2030, 72, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==7)
+    {
+ 
+        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 3528, 3528, 78, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2184, 2184, 78, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2184, 2184, 78, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==8)
+    {
+
+        
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 3768, 3768, 84, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2352, 2352, 84, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 2352, 2352, 84, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
+    else if(getUrlVars()["redkinglvl"]==9)
+    {
+ 
+    
+        //Active troops on enemy team
+        var rTroops = [
+        ["ctower", 4308, 4008, 90, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ["ptower", 2534, 2534, 90, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ["ptower", 2534, 2534, 90, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ];
+    }
+    else if(getUrlVars()["redkinglvl"]==10)
+    {
+
+    
+        //Active troops on enemy team
+        var rTroops = [
+        ["ctower", 4392, 4392, 99, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ["ptower", 2786, 2786, 99, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ["ptower", 2786, 2786, 99, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+        ]; 
+    }
+    else if(getUrlVars()["redkinglvl"]==11)
+    {
+
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 4824, 4824, 109, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 3052, 3052, 109, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 3052, 3052, 109, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ]; 
+    }
+    else if(getUrlVars()["redkinglvl"]==12)
+    {
+
+                //Active troops on enemy team
+                var rTroops = [
+                ["ctower", 5304, 5304, 119, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 3346, 3346, 119, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 3346, 3346, 119, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ]; 
+    }
+    else if(getUrlVars()["redkinglvl"]==13)
+    {
+
+                
+                //Active troops on enemy team
+                var rTroops = [
+                ["ctower", 5832, 5832, 131, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 3668, 3668, 131, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 3668, 3668, 131, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ];
+    }
+    if(getUrlVars()["redkinglvl"]==14)
+    {
+
+                //Active troops on enemy team
+                var rTroops = [
+                ["ctower", 6408, 6408, 144, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 4032, 4032, 144, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ["ptower", 4032, 4032, 144, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+                ];
+    }   
+    if(getUrlVars()["redkinglvl"]==15)
+    {
+
+            
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 7032, 7032, 158, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 4424, 4424, 158, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 4424, 4424, 158, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];        
+    }              
+    if(getUrlVars()["redkinglvl"]==16)
+    {
+
+            
+            //Active troops on enemy team
+            var rTroops = [
+            ["ctower", 7735, 7735, 173, 3, 9, 2.8, 0, 0, 7, 7, 0, 30, 15, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 4866, 4866, 173, 6.5, 3.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ["ptower", 4866, 4866, 173, 6.5, 14.5, 2, 0, 0, 7.5, 7.5, 0, 24, 12, -1, false, 0, 0, "building", "all", 1, 0, 0, []],
+            ];
+    }
 
 cardsInit();
 
