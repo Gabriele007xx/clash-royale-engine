@@ -15,7 +15,7 @@ This is an enchantment version that aims to add improvements and content, like l
 
 ## Roadmap
 
-- Customizable King Levels: 50%
+- Customizable King Levels: ✔
 - Customizable Card Levels
 - Boat Battles PvE enviroments
 - Custom attributes
